@@ -33,5 +33,16 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ValidateNickname();
         }
     }
-        
+    
+    public void GotoScene(string level){
+        SceneManager.LoadScene(level);
+    }
+
+    public void GotoNextScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GotoPreviousScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }
