@@ -88,4 +88,5 @@ public class DialogueSystem : MonoBehaviour
         playerDetected = false;
         exclamationMark.SetActive(false);
     }
+    
 }
