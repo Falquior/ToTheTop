@@ -490,7 +490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &364814130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1715,8 +1715,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2124609523}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GotoScene
-        m_Mode: 5
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2504,7 +2504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2051939788
 RectTransform:
   m_ObjectHideFlags: 0

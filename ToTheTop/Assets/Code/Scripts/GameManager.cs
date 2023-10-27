@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if (UIManager.Instance.nickname != null)
         {
-            SceneManager.LoadScene("DialogueSystem");
+            SceneManager.LoadScene("Player_Test");
         }
         else
         {
