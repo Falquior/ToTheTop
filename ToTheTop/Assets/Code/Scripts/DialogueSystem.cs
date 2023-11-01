@@ -11,12 +11,16 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject exclamationMark;
-    [SerializeField, TextArea(4, 6)] private string[] textLine;
+    [SerializeField] private TextBox[] textLine;
+    [SerializeField] private string playerNickname;
+    [SerializeField] private string npcName;
+    private string speakerName;
 
     private bool playerDetected;
     private bool isTalking;
     private int lineIndex;
     [SerializeField, Range(0.05f, 0.5f)] private float typingTime;
+    
 
     private void Update()
     {
@@ -26,14 +30,14 @@ public class DialogueSystem : MonoBehaviour
             {
                 StartDialogue();
             }
-            else if (dialogueText.text == textLine[lineIndex])
+            else if (dialogueText.text == $"{speakerName}: "+ textLine[lineIndex].text)
             {
                 NextLine();
             }
             else
             {
                 StopAllCoroutines();
-                dialogueText.text = textLine[lineIndex];
+                dialogueText.text = $"{speakerName}: {textLine[lineIndex].text}";
             }
         }
     }
@@ -44,7 +48,7 @@ public class DialogueSystem : MonoBehaviour
         dialoguePanel.SetActive(true);
         exclamationMark.SetActive(false);
         lineIndex = 0;
-        StartCoroutine(TypeTextLine());
+        AsignName();
     }
 
     void NextLine()
@@ -52,7 +56,7 @@ public class DialogueSystem : MonoBehaviour
         lineIndex++;
         if (lineIndex < textLine.Length)
         {
-            StartCoroutine(TypeTextLine());
+            AsignName();
         }
         else
         {
@@ -61,12 +65,34 @@ public class DialogueSystem : MonoBehaviour
             exclamationMark.SetActive(true);
         }
     }
+
+    void GetResponse()
+    {
+        if (textLine[lineIndex].response)
+        {
+            UIManager.Instance.ShowConfirmationPanel();
+        }
+    }
+
+    void AsignName()
+    {
+        if (textLine[lineIndex].isPlayer)
+        {
+            StartCoroutine(TypeTextLine(playerNickname));
+            speakerName = playerNickname;
+        }
+        else
+        {
+            StartCoroutine(TypeTextLine(npcName));
+            speakerName = npcName;
+        }
+    }
     
-    IEnumerator TypeTextLine()
+    IEnumerator TypeTextLine(string speaker)
     {
         dialogueText.text = string.Empty;
-
-        foreach (char character in textLine[lineIndex])
+        dialogueText.text = $"{speaker}: ";
+        foreach (char character in textLine[lineIndex].text)
         {
             dialogueText.text += character;
             yield return new WaitForSeconds(typingTime);
@@ -89,4 +115,14 @@ public class DialogueSystem : MonoBehaviour
         exclamationMark.SetActive(false);
     }
     
+
+}
+
+[System.Serializable]
+
+public class TextBox
+{
+    [TextArea(4, 12)] public string text;
+    public bool isPlayer;
+    public bool response;
 }

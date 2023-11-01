@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     public string nickname;
     [SerializeField] private GameObject validateNickname;
+    [SerializeField] private GameObject confirmationPanel;
 
     private void Awake()
     {
@@ -35,5 +36,10 @@ public class UIManager : MonoBehaviour
     public void ValidateNickname()
     {
         validateNickname.SetActive(true);
+    }
+
+    public void ShowConfirmationPanel()
+    {
+        confirmationPanel.SetActive(true);
     }
 }
