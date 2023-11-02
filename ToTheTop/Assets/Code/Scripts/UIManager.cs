@@ -2,44 +2,55 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject gameOverPanel;
 
-    public string nickname;
-    [SerializeField] private GameObject validateNickname;
-    [SerializeField] private GameObject confirmationPanel;
+    private bool isPaused;
+    public bool playerFall;
 
-    private void Awake()
+    private void Update()
     {
-        if (Instance != null)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(gameObject);
+            PauseGame();
         }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    void PauseGame()
     {
-        nickname = null;
+        if (!isPaused)
+        {
+            pausePanel.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+            isPaused = false;
+        }
     }
 
-    public void RegisterNickname(string inputNick)
+    void GameOver()
     {
-        nickname = inputNick;
+        if (playerFall)
+        {
+            gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
-    public void ValidateNickname()
+    void ActivateSettingsPanel()
     {
-        validateNickname.SetActive(true);
+        settingsPanel.SetActive(true);
     }
-
-    public void ShowConfirmationPanel()
-    {
-        confirmationPanel.SetActive(true);
-    }
+    
+    
 }

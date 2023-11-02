@@ -8,6 +8,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public string nickname;
+
+    [SerializeField] private GameObject validateNickname;
 
 
     private void Awake()
@@ -20,18 +23,27 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
+    private void Start()
+    {
+        nickname = null;
+    }
 
     public void StartGame()
     {
-        if (UIManager.Instance.nickname != null)
+        if (nickname != null)
         {
             SceneManager.LoadScene("Player_Test");
         }
         else
         {
-            UIManager.Instance.ValidateNickname();
+            validateNickname.SetActive(true);
         }
+    }
+
+    public void RegisterNickname(string inputNickname)
+    {
+        nickname = inputNickname;
     }
     
     public void GotoScene(string level){
