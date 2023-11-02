@@ -4,13 +4,21 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider2D))]
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private RawImage npcPortrait;
+    [SerializeField] private RawImage playerPortrait;
+    [SerializeField] private Texture npcFullColor;
+    [SerializeField] private Texture npcBlackWhite;
+    [SerializeField] private Texture playerFullColor;
+    [SerializeField] private Texture playerBlackWhite;
     [SerializeField] private GameObject exclamationMark;
+    [SerializeField] private GameObject confirmationPanel;
     [SerializeField] private TextBox[] textLine;
     [SerializeField] private string playerNickname;
     [SerializeField] private string npcName;
@@ -24,7 +32,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Update()
     {
-        if (playerDetected && Input.GetKeyDown(KeyCode.Tab))
+        if (playerDetected && Input.GetKeyDown(KeyCode.E))
         {
             if (!isTalking)
             {
@@ -63,26 +71,24 @@ public class DialogueSystem : MonoBehaviour
             isTalking = false;
             dialoguePanel.SetActive(false);
             exclamationMark.SetActive(true);
+            confirmationPanel.SetActive(true);
         }
     }
-
-    void GetResponse()
-    {
-        if (textLine[lineIndex].response)
-        {
-            UIManager.Instance.ShowConfirmationPanel();
-        }
-    }
+    
 
     void AsignName()
     {
         if (textLine[lineIndex].isPlayer)
         {
+            npcPortrait.texture = npcBlackWhite;
+            playerPortrait.texture = playerFullColor;
             StartCoroutine(TypeTextLine(playerNickname));
             speakerName = playerNickname;
         }
         else
         {
+            npcPortrait.texture = npcFullColor;
+            playerPortrait.texture = playerBlackWhite;
             StartCoroutine(TypeTextLine(npcName));
             speakerName = npcName;
         }
@@ -124,5 +130,4 @@ public class TextBox
 {
     [TextArea(4, 12)] public string text;
     public bool isPlayer;
-    public bool response;
 }
