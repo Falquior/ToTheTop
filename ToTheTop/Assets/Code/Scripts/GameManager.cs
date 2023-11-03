@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public TextMeshProUGUI _inputField;
     public string nickname;
 
     [SerializeField] private GameObject validateNickname;
@@ -33,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         if (nickname != null)
         {
-            SceneManager.LoadScene("Player_Test");
+            SceneManager.LoadScene("Interaction 1");
         }
         else
         {
@@ -41,9 +43,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RegisterNickname(string inputNickname)
+    public void RegisterNickname()
     {
-        nickname = inputNickname;
+        nickname = _inputField.text;
     }
     
     public void GotoScene(string level){

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,9 +11,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject gameOverPanel;
+    
+    
+    [SerializeField, Tooltip("Drag Raw Image on the right in Dialogue panel")] 
+    private RawImage playerPortrait;
+    [SerializeField] private Texture playerFullColor;
+    [SerializeField] private Texture playerBlackWhite;
 
     private bool isPaused;
     public bool playerFall;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -50,6 +62,18 @@ public class UIManager : MonoBehaviour
     void ActivateSettingsPanel()
     {
         settingsPanel.SetActive(true);
+    }
+    
+    public void ShowPlayerPortrait(bool isPlayer)
+    {
+        if (isPlayer)
+        {
+            playerPortrait.texture = playerFullColor;
+        }
+        else
+        {
+            playerPortrait.texture = playerBlackWhite;
+        }
     }
     
     

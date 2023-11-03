@@ -11,24 +11,28 @@ public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private RawImage npcPortrait;
-    [SerializeField] private RawImage playerPortrait;
-    [SerializeField] private Texture npcFullColor;
-    [SerializeField] private Texture npcBlackWhite;
-    [SerializeField] private Texture playerFullColor;
-    [SerializeField] private Texture playerBlackWhite;
     [SerializeField] private GameObject exclamationMark;
     [SerializeField] private GameObject confirmationPanel;
     [SerializeField] private TextBox[] textLine;
-    [SerializeField] private string playerNickname;
-    [SerializeField] private string npcName;
+    [SerializeField, Tooltip("Drag the attached NPC into this dialogue system")]
+    private NPC _npc;
+    private string playerNickname;
+    private string npcName;
     private string speakerName;
 
     private bool playerDetected;
     private bool isTalking;
     private int lineIndex;
     [SerializeField, Range(0.05f, 0.5f)] private float typingTime;
-    
+
+    private void Start()
+    {
+        speakerName = "";
+        playerNickname = GameManager.Instance.nickname;
+        _npc = GetComponent<NPC>();
+        npcName = _npc.GetNpcName();
+    }
+
 
     private void Update()
     {
@@ -80,15 +84,15 @@ public class DialogueSystem : MonoBehaviour
     {
         if (textLine[lineIndex].isPlayer)
         {
-            npcPortrait.texture = npcBlackWhite;
-            playerPortrait.texture = playerFullColor;
+            _npc.ShowNpcPortrait(textLine[lineIndex].isPlayer);
+            UIManager.Instance.ShowPlayerPortrait(textLine[lineIndex].isPlayer);
             StartCoroutine(TypeTextLine(playerNickname));
             speakerName = playerNickname;
         }
         else
         {
-            npcPortrait.texture = npcFullColor;
-            playerPortrait.texture = playerBlackWhite;
+            _npc.ShowNpcPortrait(textLine[lineIndex].isPlayer);
+            UIManager.Instance.ShowPlayerPortrait(textLine[lineIndex].isPlayer);
             StartCoroutine(TypeTextLine(npcName));
             speakerName = npcName;
         }
