@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-
     private void Awake()
     {
         if (Instance != null)
@@ -20,7 +19,6 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
 
     public void StartGame()
     {
@@ -33,16 +31,20 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ValidateNickname();
         }
     }
-    
-    public void GotoScene(string level){
+
+    //Scene managing
+    public void GotoScene(string level)
+    {
         SceneManager.LoadScene(level);
     }
 
-    public void GotoNextScene(){
+    public void GotoNextScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void GotoPreviousScene(){
+    public void GotoPreviousScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
