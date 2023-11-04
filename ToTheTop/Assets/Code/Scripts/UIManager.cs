@@ -2,38 +2,79 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject gameOverPanel;
+    
+    
+    [SerializeField, Tooltip("Drag Raw Image on the right in Dialogue panel")] 
+    private RawImage playerPortrait;
+    [SerializeField] private Texture playerFullColor;
+    [SerializeField] private Texture playerBlackWhite;
 
-    public string nickname;
-    [SerializeField] private GameObject validateNickname;
+    private bool isPaused;
+    public bool playerFall;
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    private void Update()
     {
-        nickname = null;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
 
-    public void RegisterNickname(string inputNick)
+    void PauseGame()
     {
-        nickname = inputNick;
+        if (!isPaused)
+        {
+            pausePanel.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+            isPaused = false;
+        }
     }
 
-    public void ValidateNickname()
+    void GameOver()
     {
-        validateNickname.SetActive(true);
+        if (playerFall)
+        {
+            gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
+
+    void ActivateSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+    }
+    
+    public void ShowPlayerPortrait(bool isPlayer)
+    {
+        if (isPlayer)
+        {
+            playerPortrait.texture = playerFullColor;
+        }
+        else
+        {
+            playerPortrait.texture = playerBlackWhite;
+        }
+    }
+    
+    
 }
