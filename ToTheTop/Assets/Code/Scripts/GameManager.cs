@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject validateNickname;
 
-
     private void Awake()
     {
         if (Instance != null)
@@ -31,6 +30,7 @@ public class GameManager : MonoBehaviour
         nickname = null;
     }
 
+
     public void StartGame()
     {
         if (nickname != null)
@@ -42,21 +42,23 @@ public class GameManager : MonoBehaviour
             validateNickname.SetActive(true);
         }
     }
-
     public void RegisterNickname()
     {
         nickname = _inputField.text;
     }
-    
-    public void GotoScene(string level){
+    //Scene managing
+    public void GotoScene(string level)
+    {
         SceneManager.LoadScene(level);
     }
 
-    public void GotoNextScene(){
+    public void GotoNextScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void GotoPreviousScene(){
+    public void GotoPreviousScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

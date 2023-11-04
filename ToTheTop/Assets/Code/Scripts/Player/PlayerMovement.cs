@@ -17,13 +17,20 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] float airLinearDrag = 2.5f;
     [SerializeField] float fallMultiplier = 8f;
     [SerializeField] float lowJumpFallMultiplier = 8f;
-    private bool canJump => Input.GetButtonDown("Jump") && onGround;
 
     [Header("Gorund Detection")]
     [SerializeField] LayerMask groundLayer;
 
     [SerializeField] float groundRaycastLenght;
     private bool onGround;
+
+    [Header("Coyote Time")]
+    [SerializeField] float coyoteTime = 0.2f;
+    [SerializeField] float coyoteTimeCounter;
+
+    [Header("Jump Buffering")]
+    [SerializeField] float jumpBufferTime = 0.2f;
+    [SerializeField] float jumpBufferTimeCounter;
 
     [Header("Components")]
     private Rigidbody2D playerRigid;
@@ -35,8 +42,34 @@ public class PlayerMovement : MonoBehaviour{
     private void Update(){
         horizontalDirection = GetInput().x;
 
-        if (canJump)
+        if (onGround)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if(Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
+        {
+            jumpBufferTimeCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferTimeCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferTimeCounter > 0f && coyoteTimeCounter > 0f)
+        {
             Jump();
+            jumpBufferTimeCounter = 0f;
+        }
+
+        if(Input.GetButtonUp("Jump")|| Input.GetKeyDown(KeyCode.W))
+        {
+            coyoteTimeCounter = 0f;
+        }
     }
 
     private void FixedUpdate(){
