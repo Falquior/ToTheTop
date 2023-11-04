@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,8 +12,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject gameOverPanel;
-    
-    
+    [SerializeField] private GameObject finishedMissionPanel;
+
+
+
     [SerializeField, Tooltip("Drag Raw Image on the right in Dialogue panel")] 
     private RawImage playerPortrait;
     [SerializeField] private Texture playerFullColor;
@@ -75,6 +78,25 @@ public class UIManager : MonoBehaviour
             playerPortrait.texture = playerBlackWhite;
         }
     }
-    
+
+    public void FinishedGame()
+    {
+        finishedMissionPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Level_Interaction");
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("UIMenu");
+    }
     
 }

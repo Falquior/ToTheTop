@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
@@ -10,6 +11,8 @@ public class NPC : MonoBehaviour
     private RawImage npcPortrait;
     [SerializeField] private Texture npcFullColor;
     [SerializeField] private Texture npcBlackWhite;
+    
+    [SerializeField] private GameObject yesBtn;
 
     public string GetNpcName()
     {
@@ -27,4 +30,5 @@ public class NPC : MonoBehaviour
             npcPortrait.texture = npcBlackWhite;
         }
     }
+    
 }

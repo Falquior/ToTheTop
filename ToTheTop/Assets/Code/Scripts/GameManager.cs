@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         if (nickname != null)
         {
-            SceneManager.LoadScene("Interaction 1");
+            SceneManager.LoadScene("Level_Interaction");
         }
         else
         {
