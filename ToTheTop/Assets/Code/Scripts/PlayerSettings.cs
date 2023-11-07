@@ -2,15 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+
+public class PlayerSettings : MonoBehaviour
 {
-    public static GameManager Instance;
-    
-    public TMP_InputField inputNickname;
+    [SerializeField] private TMP_InputField inputNickname;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider dialogueSpeedSlider;
@@ -24,21 +23,6 @@ public class GameManager : MonoBehaviour
     private float defaultSfxVolume = 1.0f;
     private float defaultMusicVolume = 1;
     private float defaultDialogueSpeed = 0.15f;
-
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject settingsPanel;
-    private bool isPaused;
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
 
     private void Start()
     {
@@ -87,7 +71,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(dialogueSpeed, defaultDialogueSpeed);
         }
     }
-    
 
     public void SetNickname()
     {
@@ -108,10 +91,4 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat(dialogueSpeed, dialogueSpeedSlider.value);
     }
-
-    public void ActivateSettingsPanel()
-    {
-        settingsPanel.SetActive(true);
-    }
-    
 }

@@ -23,12 +23,13 @@ public class DialogueSystem : MonoBehaviour
     private bool playerDetected;
     private bool isTalking;
     private int lineIndex;
-    [SerializeField, Range(0.05f, 0.5f)] private float typingTime;
+    private float typingTime;
 
     private void Start()
     {
+        typingTime = UIManager.Instance.typingSpeed;
         speakerName = "";
-        playerNickname = GameManager.Instance.nickname;
+        playerNickname = PlayerPrefs.GetString("Nickname");
         _npc = GetComponent<NPC>();
         npcName = _npc.GetNpcName();
     }
