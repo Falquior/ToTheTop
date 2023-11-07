@@ -10,8 +10,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject finishedMissionPanel;
     
@@ -19,8 +19,6 @@ public class UIManager : MonoBehaviour
     private RawImage playerPortrait;
     [SerializeField] private Texture playerFullColor;
     [SerializeField] private Texture playerBlackWhite;
-    
-    public float typingSpeed;
 
     private bool isPaused;
     public bool playerFall;
@@ -32,9 +30,9 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        typingSpeed = 0.1f;
+        Time.timeScale = 0;
     }
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Level_Interaction")
@@ -45,12 +43,7 @@ public class UIManager : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("Level_Interaction");
-        if (isPaused)
-        {
-            Time.timeScale = 1;
-            isPaused = false;
-        }
+        Time.timeScale = 1;
     }
 
     public void PauseGame()
@@ -100,32 +93,20 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Level_Interaction");
     }
 
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("UIMenu");
-    }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1;
+        if (isPaused)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
     }
 
     public void SettingsButtonFunction()
     {
-        GameManager.Instance.ActivateSettingsPanel();
+        settingsPanel.SetActive(true);
     }
-
-    public void SetNickname()
-    {
-        if (GameManager.Instance.inputNickname != null)
-        {
-            GameManager.Instance.SetNickname();
-        }
-        else
-        {
-            GameManager.Instance.inputNickname = _inputField;
-            GameManager.Instance.SetNickname();
-        }
-    }
+    
     
 }
