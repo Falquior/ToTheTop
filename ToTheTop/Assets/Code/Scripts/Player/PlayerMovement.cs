@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerMovement : MonoBehaviour{
 
@@ -35,12 +37,54 @@ public class PlayerMovement : MonoBehaviour{
     [Header("Components")]
     private Rigidbody2D playerRigid;
 
+    [Header("Animate")]
+    private Animator animator;
+    private SpriteRenderer sprite;
     private void Start(){
         playerRigid = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update(){
         horizontalDirection = GetInput().x;
+
+        switch (horizontalDirection)
+        {
+            case -1:
+                sprite.flipX = true;
+                animator.SetBool("Walk", true);
+                break;
+            case 1:
+                sprite.flipX = false;
+                animator.SetBool("Walk", true);
+                break;
+            case 0:
+                animator.SetBool("Walk", false);
+                break;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(Trow());
+        }
+
+        switch (onGround)
+        {
+            case true:
+                animator.SetBool("Hang", false);
+                break;
+            case false:
+                animator.SetBool("Hang", true);
+                break;
+        }
+
+        IEnumerator Trow()
+        {
+            animator.SetBool("Trow", true);
+            yield return new WaitForSeconds(0.6f);
+            animator.SetBool("Trow", false);
+        }
 
         if (onGround)
         {
