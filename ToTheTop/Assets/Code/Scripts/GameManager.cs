@@ -99,6 +99,15 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat(dialogueSpeed, dialogueSpeedSlider.value);
     }
-    
+
+    public string GetNickname()
+    {
+        return PlayerPrefs.GetString(nickname);
+    }
+
+    public float GetDialogueSpeed()
+    {
+        return PlayerPrefs.GetFloat(dialogueSpeed);
+    }
     
 }
