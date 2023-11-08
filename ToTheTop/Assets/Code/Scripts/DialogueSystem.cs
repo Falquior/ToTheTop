@@ -37,7 +37,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Update()
     {
-        if (playerDetected && Input.GetKeyDown(KeyCode.E))
+        if (playerDetected && Input.GetKeyDown(KeyCode.E) && !confirmationPanel.activeSelf)
         {
             if (!isTalking)
             {

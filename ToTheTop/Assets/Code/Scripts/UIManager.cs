@@ -51,16 +51,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void StopManager()
+    {
+        ActivatePlayerMovement();
+    }
+
     public void ActivatePlayerMovement()
     {
-        if (_pc.enabled)
-        {
-            _pc.enabled = false;
-        }
-        else
-        {
-            _pc.enabled = true;
-        }
+        _pc.enabled = !_pc.enabled;
+
     }
     
     public void StartGame()
