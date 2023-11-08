@@ -27,9 +27,9 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start()
     {
-        typingTime = PlayerPrefs.GetFloat("DialogueSpeed");
+        typingTime = GameManager.Instance.GetDialogueSpeed();
         speakerName = "";
-        playerNickname = PlayerPrefs.GetString("Nickname");
+        playerNickname = GameManager.Instance.GetNickname();
         _npc = GetComponent<NPC>();
         npcName = _npc.GetNpcName();
     }
@@ -57,6 +57,7 @@ public class DialogueSystem : MonoBehaviour
 
     void StartDialogue()
     {
+        UIManager.Instance.ActivatePlayerMovement();
         isTalking = true;
         dialoguePanel.SetActive(true);
         exclamationMark.SetActive(false);

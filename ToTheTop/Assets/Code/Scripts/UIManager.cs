@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     public void ActivatePlayerMovement()
     {
-        if (_pc.isActiveAndEnabled)
+        if (_pc.enabled)
         {
             _pc.enabled = false;
         }
