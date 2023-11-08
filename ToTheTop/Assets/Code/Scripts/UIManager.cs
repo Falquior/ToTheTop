@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,7 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject gameOverPanel;
-    
+    [SerializeField] private GameObject finishedMissionPanel;
     
     [SerializeField, Tooltip("Drag Raw Image on the right in Dialogue panel")] 
     private RawImage playerPortrait;
@@ -26,15 +28,25 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        Time.timeScale = 0;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Level_Interaction")
         {
             PauseGame();
         }
     }
+    
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+    }
 
-    void PauseGame()
+    public void PauseGame()
     {
         if (!isPaused)
         {
@@ -59,11 +71,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void ActivateSettingsPanel()
-    {
-        settingsPanel.SetActive(true);
-    }
-    
     public void ShowPlayerPortrait(bool isPlayer)
     {
         if (isPlayer)
@@ -74,6 +81,31 @@ public class UIManager : MonoBehaviour
         {
             playerPortrait.texture = playerBlackWhite;
         }
+    }
+
+    public void FinishedGame()
+    {
+        finishedMissionPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Level_Interaction");
+    }
+
+
+    public void ResumeGame()
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
+    }
+
+    public void SettingsButtonFunction()
+    {
+        settingsPanel.SetActive(true);
     }
     
     

@@ -9,10 +9,22 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public TextMeshProUGUI _inputField;
-    public string nickname;
+    
+    public TMP_InputField inputNickname;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider dialogueSpeedSlider;
 
-    [SerializeField] private GameObject validateNickname;
+    private string nickname = "Nickname";
+    private string sfxVolume = "SfxVolume";
+    private string musicVolume = "MusicVolume";
+    private string dialogueSpeed = "DialogueSpeed";
+
+    private string defaultNickname = "Player";
+    private float defaultSfxVolume = 1.0f;
+    private float defaultMusicVolume = 1;
+    private float defaultDialogueSpeed = 0.15f;
+    
 
     private void Awake()
     {
@@ -27,38 +39,72 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        nickname = null;
+        LoadSettings();
     }
 
-
-    public void StartGame()
+    public void LoadSettings()
     {
-        if (nickname != null)
+        if (PlayerPrefs.HasKey(nickname))
         {
-            SceneManager.LoadScene("Interaction 1");
+            inputNickname.text = PlayerPrefs.GetString(nickname);
         }
         else
         {
-            validateNickname.SetActive(true);
+            inputNickname.text = defaultNickname;
+            PlayerPrefs.SetString(nickname, defaultNickname);
+        }
+
+        if (PlayerPrefs.HasKey(sfxVolume))
+        {
+            sfxSlider.value = PlayerPrefs.GetFloat(sfxVolume);
+        }
+        else
+        {
+            sfxSlider.value = defaultSfxVolume;
+            PlayerPrefs.SetFloat(sfxVolume, defaultSfxVolume);
+        }
+
+        if (PlayerPrefs.HasKey(musicVolume))
+        {
+            musicSlider.value = PlayerPrefs.GetFloat(musicVolume);
+        }
+        else
+        {
+            musicSlider.value = defaultMusicVolume;
+            PlayerPrefs.SetFloat(musicVolume, defaultMusicVolume);
+        }
+
+        if (PlayerPrefs.HasKey(dialogueSpeed))
+        {
+            dialogueSpeedSlider.value = PlayerPrefs.GetFloat(dialogueSpeed);
+        }
+        else
+        {
+            dialogueSpeedSlider.value = defaultDialogueSpeed;
+            PlayerPrefs.SetFloat(dialogueSpeed, defaultDialogueSpeed);
         }
     }
-    public void RegisterNickname()
+    
+
+    public void SetNickname()
     {
-        nickname = _inputField.text;
-    }
-    //Scene managing
-    public void GotoScene(string level)
-    {
-        SceneManager.LoadScene(level);
+        PlayerPrefs.SetString(nickname, inputNickname.text);
     }
 
-    public void GotoNextScene()
+    public void SetSfxVolume()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.SetFloat(sfxVolume, sfxSlider.value);
     }
 
-    public void GotoPreviousScene()
+    public void SetMusicVolume()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        PlayerPrefs.SetFloat(musicVolume, musicSlider.value);
     }
+
+    public void SetDialogueSpeed()
+    {
+        PlayerPrefs.SetFloat(dialogueSpeed, dialogueSpeedSlider.value);
+    }
+    
+    
 }
