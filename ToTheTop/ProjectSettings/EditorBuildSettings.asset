@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Level/Scenes/Interaction 1.unity
     guid: 2d99f24c200918b41a71dc2ca78ae450
-  - enabled: 1
+  - enabled: 0
     path: Assets/Level/Scenes/Level_Interaction.unity
     guid: 865fc79e28e1cac47a01b21964ecc163
+  - enabled: 1
+    path: Assets/Level/Scenes/Level_UI.unity
+    guid: 1f29b067ad8fb6a4093f4b776d676b55
   m_configObjects: {}
