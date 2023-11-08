@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private string musicVolume = "MusicVolume";
     private string dialogueSpeed = "DialogueSpeed";
 
-    private string defaultNickname = "Player";
+    private string defaultNickname = "Mary";
     private float defaultSfxVolume = 1.0f;
     private float defaultMusicVolume = 1;
     private float defaultDialogueSpeed = 0.15f;

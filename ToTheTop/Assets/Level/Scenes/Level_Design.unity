@@ -1361,11 +1361,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -233
+      value: -218.9
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 91
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8627,7 +8627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 139
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8740,6 +8740,10 @@ PrefabInstance:
     - target: {fileID: 9005009895157428747, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_Name
       value: SettingsBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005009895157428747, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8911,7 +8915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 184
+      value: 223
       objectReference: {fileID: 0}
     - target: {fileID: 3934209776701566620, guid: 846f953a22cb9394db33f4e30557cd3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23225,7 +23229,7 @@ GameObject:
   - component: {fileID: 1028155775}
   - component: {fileID: 1028155774}
   m_Layer: 5
-  m_Name: PuasePanel
+  m_Name: PausePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24847,8 +24851,8 @@ MonoBehaviour:
   gameOverPanel: {fileID: 0}
   finishedMissionPanel: {fileID: 0}
   playerPortrait: {fileID: 4530040998907927434}
-  playerFullColor: {fileID: 2800000, guid: 416db11778d00434f8d7cf0f26d197ea, type: 3}
-  playerBlackWhite: {fileID: 2800000, guid: 34e483844cc315c499dc282aa1c3a751, type: 3}
+  playerFullColor: {fileID: 2800000, guid: 28acfc30fed92eb4e810596260e2eba1, type: 3}
+  playerBlackWhite: {fileID: 2800000, guid: ababa012efd86f94a89cd6423d99987f, type: 3}
   playerFall: 0
 --- !u!4 &1453138349
 Transform:
@@ -26224,7 +26228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1994449260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27127,7 +27131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want to help him?
+  m_text: "\xBFDeseas ayudarlo?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0386b20d980dd4ba1c6f11cc1752cd, type: 2}
   m_sharedMaterial: {fileID: 4547886142348114094, guid: bf0386b20d980dd4ba1c6f11cc1752cd, type: 2}
@@ -27232,7 +27236,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -27250,7 +27254,7 @@ Transform:
   m_GameObject: {fileID: 2872778253809517888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.51, y: 8.9, z: 0}
+  m_LocalPosition: {x: 80.51, y: 8.6, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27939,6 +27943,7 @@ GameObject:
   - component: {fileID: 1039559282035181850}
   - component: {fileID: 4322348408384246794}
   - component: {fileID: 7682322790364201747}
+  - component: {fileID: 7895851913457957808}
   m_Layer: 0
   m_Name: GenericNpc
   m_TagString: Untagged
@@ -28163,19 +28168,22 @@ MonoBehaviour:
   exclamationMark: {fileID: 6450803923498037728}
   confirmationPanel: {fileID: 7514849606759021046}
   textLine:
-  - text: Hola que mas
+  - text: "\xA1Hola!, soy Dave, \xBFQue te trae el dia de hoy a esta monta\xF1a?"
     isPlayer: 0
-  - text: Bien y tu
+  - text: Hola, soy Mary, vengo a escalarla, quiero llegar a la cima el dia de hoy.
     isPlayer: 1
-  - text: "Ah que bueno, bien tambi\xE9n y que haces"
+  - text: "Oh, es una tarea muy compleja, una duda, \xBFtienes tiempo para ayudarme
+      con algo?"
     isPlayer: 0
-  - text: aqui suave escalando y tu
+  - text: Cuentame que es, tengo que mirar el tema de tiempos a ver
     isPlayer: 1
-  - text: Aqui mano, mirando lo que usted escala
+  - text: "Es que estoy en busqueda de un cofre que ocult\xE9 cuando era mas peque\xF1o,
+      solo se que esta por esta zona pero nada que lo encuentro."
     isPlayer: 0
-  - text: sabe
+  - text: "\xBFPodrias ayudarme?"
     isPlayer: 0
-  - text: sabe
+  - text: "(Sabes que si lo ayudas se hara tarde y ya no podras escalar la monta\xF1a)
+      Pues..."
     isPlayer: 1
   _npc: {fileID: 7682322790364201747}
 --- !u!4 &4361429042474886693
@@ -29037,10 +29045,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41665bb1aad6faf47b989b6f78a328b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Tim
+  npcName: Dave
   npcPortrait: {fileID: 6316749245446546816}
-  npcFullColor: {fileID: 2800000, guid: 6af10652b9d554b4a8db839f99a94f1a, type: 3}
-  npcBlackWhite: {fileID: 2800000, guid: 0848c8191e7acb24c8038290cf3d05a3, type: 3}
+  npcFullColor: {fileID: 2800000, guid: 203fadefde5419045aaeb2eb5178a914, type: 3}
+  npcBlackWhite: {fileID: 2800000, guid: 7886988e8c8555748954578e8c5c7f06, type: 3}
   yesBtn: {fileID: 0}
 --- !u!114 &7718526043315951811
 MonoBehaviour:
@@ -29152,9 +29160,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -1376151952, guid: 00ba7a5d2b5e8c6418e327be5a35b80b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -29163,6 +29171,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7895851913457957808
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872778253809517888}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9639a6c0df1fe794eb4c036990ac9dd3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!224 &7958803049443076730
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29396,7 +29425,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bf0386b20d980dd4ba1c6f11cc1752cd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e422760ff406b964c8c44833442ef0ff, type: 2}
   m_sharedMaterial: {fileID: 4547886142348114094, guid: bf0386b20d980dd4ba1c6f11cc1752cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -29424,9 +29453,9 @@ MonoBehaviour:
   m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 12
+  m_fontSizeMax: 24
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -29460,7 +29489,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &8687614418562336718
@@ -29530,7 +29559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yes
+  m_text: Si
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf0386b20d980dd4ba1c6f11cc1752cd, type: 2}
   m_sharedMaterial: {fileID: 4547886142348114094, guid: bf0386b20d980dd4ba1c6f11cc1752cd, type: 2}
