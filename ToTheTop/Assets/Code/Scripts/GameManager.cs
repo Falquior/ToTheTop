@@ -24,10 +24,7 @@ public class GameManager : MonoBehaviour
     private float defaultSfxVolume = 1.0f;
     private float defaultMusicVolume = 1;
     private float defaultDialogueSpeed = 0.15f;
-
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject settingsPanel;
-    private bool isPaused;
+    
 
     private void Awake()
     {
@@ -108,10 +105,6 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat(dialogueSpeed, dialogueSpeedSlider.value);
     }
-
-    public void ActivateSettingsPanel()
-    {
-        settingsPanel.SetActive(true);
-    }
+    
     
 }

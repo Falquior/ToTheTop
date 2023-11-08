@@ -27,7 +27,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start()
     {
-        typingTime = UIManager.Instance.typingSpeed;
+        typingTime = PlayerPrefs.GetFloat("DialogueSpeed");
         speakerName = "";
         playerNickname = PlayerPrefs.GetString("Nickname");
         _npc = GetComponent<NPC>();
