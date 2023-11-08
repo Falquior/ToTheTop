@@ -11,8 +11,9 @@ public class NPC : MonoBehaviour
     private RawImage npcPortrait;
     [SerializeField] private Texture npcFullColor;
     [SerializeField] private Texture npcBlackWhite;
+
+    [SerializeField] private Button yesBtn;
     
-    [SerializeField] private GameObject yesBtn;
 
     public string GetNpcName()
     {

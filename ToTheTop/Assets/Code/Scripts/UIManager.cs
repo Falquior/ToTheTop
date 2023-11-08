@@ -7,11 +7,16 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+[DefaultExecutionOrder(100)]
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [SerializeField] private GameObject _player;
+    private PlayerMovement _pc;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject finishedMissionPanel;
     
@@ -22,6 +27,7 @@ public class UIManager : MonoBehaviour
 
     private bool isPaused;
     public bool playerFall;
+    private bool isStarting;
 
     private void Awake()
     {
@@ -30,20 +36,37 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0;
+        _pc = _player.GetComponent<PlayerMovement>();
+        _pc.enabled = false;
+        isStarting = true;
+        menuPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Level_Interaction")
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
+        }
+    }
+
+    public void ActivatePlayerMovement()
+    {
+        if (_pc.isActiveAndEnabled)
+        {
+            _pc.enabled = false;
+        }
+        else
+        {
+            _pc.enabled = true;
         }
     }
     
     public void StartGame()
     {
-        Time.timeScale = 1;
+        _pc.enabled = true;
+        isStarting = false;
     }
 
     public void PauseGame()
@@ -90,16 +113,19 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level_Interaction");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
     public void ResumeGame()
     {
-        if (isPaused)
+        if (isStarting)
         {
-            Time.timeScale = 1;
-            isPaused = false;
+            menuPanel.SetActive(true);
+        }
+        else
+        {
+            pausePanel.SetActive(true);
         }
     }
 
