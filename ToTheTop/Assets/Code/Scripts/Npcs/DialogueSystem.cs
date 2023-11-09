@@ -24,10 +24,12 @@ public class DialogueSystem : MonoBehaviour
     private bool isTalking;
     private int lineIndex;
     private float typingTime;
+    private AudioSource talkSound;
 
     private void Start()
     {
-        typingTime = GameManager.Instance.GetDialogueSpeed();
+        talkSound = GetComponent<AudioSource>();
+        typingTime = 0.02f;
         speakerName = "";
         playerNickname = GameManager.Instance.GetNickname();
         _npc = GetComponent<NPC>();
@@ -107,6 +109,7 @@ public class DialogueSystem : MonoBehaviour
         foreach (char character in textLine[lineIndex].text)
         {
             dialogueText.text += character;
+            talkSound.Play();
             yield return new WaitForSeconds(typingTime);
         }
     }

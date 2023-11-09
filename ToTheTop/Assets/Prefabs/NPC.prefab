@@ -910,7 +910,7 @@ MonoBehaviour:
   npcPortrait: {fileID: 966806413005689743}
   npcFullColor: {fileID: 2800000, guid: 6af10652b9d554b4a8db839f99a94f1a, type: 3}
   npcBlackWhite: {fileID: 2800000, guid: 0848c8191e7acb24c8038290cf3d05a3, type: 3}
-  yesBtn: {fileID: 7335131357677722567}
+  yesBtn: {fileID: 8502715669533257848}
 --- !u!1 &4728541694879170365
 GameObject:
   m_ObjectHideFlags: 0

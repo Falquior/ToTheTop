@@ -40,7 +40,11 @@ public class PlayerMovement : MonoBehaviour{
     [Header("Animate")]
     private Animator animator;
     private SpriteRenderer sprite;
+
+    private AudioSource walkSound;
+
     private void Start(){
+        walkSound = GetComponent<AudioSource>();
         playerRigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
@@ -77,6 +81,15 @@ public class PlayerMovement : MonoBehaviour{
             case false:
                 animator.SetBool("Hang", true);
                 break;
+        }
+
+        if (onGround && horizontalDirection != 0 && !walkSound.isPlaying)
+        {
+            walkSound.Play();
+        }
+        else if (!onGround || horizontalDirection == 0)
+        {
+            walkSound.Stop();
         }
 
         IEnumerator Trow()

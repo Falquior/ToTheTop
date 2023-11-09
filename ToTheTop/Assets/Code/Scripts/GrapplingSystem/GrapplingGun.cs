@@ -47,8 +47,11 @@ public class GrapplingGun : MonoBehaviour{
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
 
+    private AudioSource shootSound;
+
     private void Start()
     {
+        shootSound = GetComponent<AudioSource>();
         grappleRope.enabled = false;
         m_springJoint2D.enabled = false;
 
@@ -59,6 +62,7 @@ public class GrapplingGun : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             SetGrapplePoint();
+            shootSound.Play();
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {

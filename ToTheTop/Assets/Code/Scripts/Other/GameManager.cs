@@ -2,14 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class PlayerSettings : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField inputNickname;
+    public static GameManager Instance;
+    
+    public TMP_InputField inputNickname;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider dialogueSpeedSlider;
@@ -20,9 +21,15 @@ public class PlayerSettings : MonoBehaviour
     private string dialogueSpeed = "DialogueSpeed";
 
     private string defaultNickname = "Mary";
-    private float defaultSfxVolume = 1.0f;
-    private float defaultMusicVolume = 1;
-    private float defaultDialogueSpeed = 0.15f;
+    private float defaultSfxVolume = 0.2f;
+    private float defaultMusicVolume = 0.03f;
+    private float defaultDialogueSpeed = 0.02f;
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -71,6 +78,7 @@ public class PlayerSettings : MonoBehaviour
             PlayerPrefs.SetFloat(dialogueSpeed, defaultDialogueSpeed);
         }
     }
+    
 
     public void SetNickname()
     {
@@ -91,4 +99,15 @@ public class PlayerSettings : MonoBehaviour
     {
         PlayerPrefs.SetFloat(dialogueSpeed, dialogueSpeedSlider.value);
     }
+
+    public string GetNickname()
+    {
+        return PlayerPrefs.GetString(nickname);
+    }
+
+    public float GetDialogueSpeed()
+    {
+        return PlayerPrefs.GetFloat(dialogueSpeed);
+    }
+    
 }
