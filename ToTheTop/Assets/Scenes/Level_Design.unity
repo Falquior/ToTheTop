@@ -2655,11 +2655,11 @@ MonoBehaviour:
     isPlayer: 1
   - text: ...
     isPlayer: 0
-  - text: "\rOvercoming... challenge... growing... venturing on a journey... so many
-      reasons, and I don't know which one really brought me to this mountain."
+  - text: "\r\tOvercoming... challenge... growing... venturing on a journey... so
+      many reasons, and I don't know which one really brought me to this mountain."
     isPlayer: 1
-  - text: "\rBut hey, I've arrived... although... what would have become of all those
-      people I met along the way?"
+  - text: "\r\tBut hey, I've arrived... although... what would have become of all
+      those people I met along the way?"
     isPlayer: 1
   _npc: {fileID: 348388732}
 --- !u!61 &348388734
@@ -24847,22 +24847,22 @@ MonoBehaviour:
   exclamationMark: {fileID: 2085594426}
   confirmationPanel: {fileID: 1763149230}
   textLine:
-  - text: "Caracoles, que curioso ver a alguien tan alto en la monta\xF1a, un gusto,
-      soy Jim"
+  - text: How curious to see someone so high on the mountain, nice to meet you, I'm
+      Jim
     isPlayer: 0
-  - text: "Hola Jim soy Mary, \xBFtambien estas llendo hacia la cima?"
+  - text: "\r\tHello Jim, I'm Mary, are you also going to the top?"
     isPlayer: 1
-  - text: "Oh nonono, yo vivo cerca, vine por le\xF1a para la chimenea, pero tengo
-      dificultad para llevarla a la casa"
+  - text: Oh nonono, I live nearby, I came to get firewood for the fireplace, but
+      I have difficulty bringing it home
     isPlayer: 0
-  - text: "Vaya, \xBFy es muy lejos?"
+  - text: Wow, and is it very far?
     isPlayer: 1
-  - text: Un poco, bajando por este sendero, una hora diria yo
+  - text: "\r\tA little bit, going down this path, an hour I would say"
     isPlayer: 0
-  - text: Bueno, te dejo que se me hace tarde, un gusto Mary
+  - text: Well, I have to go now, I'm running late, nice to meet you, Mary.
     isPlayer: 0
-  - text: (Te planteas si ofrecer tu ayuda al sujeto, pero sabes que de hacerlo no
-      podras llegar a la cima) ...
+  - text: (You consider whether to offer your help Jim, but you know that if you
+      do so you will not be able to reach the top)...
     isPlayer: 1
   _npc: {fileID: 672861586}
 --- !u!61 &672861588
@@ -25172,22 +25172,22 @@ MonoBehaviour:
   exclamationMark: {fileID: 1573017365}
   confirmationPanel: {fileID: 911228470}
   textLine:
-  - text: "\xA1Saludos viajera!, soy Marguius"
+  - text: Greetings traveler!, I am Marguius
     isPlayer: 0
-  - text: Oh, buenas tardes, soy Mary
+  - text: Oh good afternoon, I'm Mary
     isPlayer: 1
-  - text: Mary... tengo una mision para ti.
+  - text: Mary... I have a mission for you.
     isPlayer: 0
-  - text: "\xBFUna mision?"
+  - text: "\r\tA mission?"
     isPlayer: 1
-  - text: "Oh si, estaba esperando a quien me acompa\xF1e a la cueva espiritual,
-      para dotar a esta persona de mis conocimientos antes de morir."
+  - text: Oh yes, I was waiting for someone to accompany me to the spiritual cave,
+      to provide this person with my knowledge before I die.
     isPlayer: 0
-  - text: "Acompa\xF1ame, y tu mente se llenara de conocimientos arcanos que te ayudaran
-      en la vida."
+  - text: "\r\tJoin me, and your mind will be filled with arcane knowledge that will
+      help you in life."
     isPlayer: 0
-  - text: "(Sabes que si lo acompa\xF1as se hara tarde y ya no podras escalar la
-      monta\xF1a) Pues..."
+  - text: (You know that if you accompany him it will get late and you will no longer
+      be able to climb the mountain) Well...
     isPlayer: 1
   _npc: {fileID: 697224863}
 --- !u!61 &697224865
@@ -33477,7 +33477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: -280, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114133075
