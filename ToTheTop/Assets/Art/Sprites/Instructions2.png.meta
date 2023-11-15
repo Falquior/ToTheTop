@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a7e27ca6b241d44f80901328f35afb0
+guid: 1af3b2526c59c5342a423b42783ca939
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -162,96 +162,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Instructions_0
+      name: Instructions2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4208f0b297e97d499f4c62108feebad
-      internalID: 1104642211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1548d95ee1d3da448a830af2e398cb5
-      internalID: -253846902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 103b8086c48837441ba26381d623ff8f
-      internalID: 496341409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Instructions_3
-      rect:
-        serializedVersion: 2
-        x: 16
         y: 48
-        width: 16
+        width: 48
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d1ca7fbecda1c48959d817e9fbd441
-      internalID: -1554114899
+      spriteID: 55ec1d1260f46c44e885df8881d27b29
+      internalID: -374360263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Instructions_4
+      name: Instructions2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48bf0f3976f8d3e4293f73051ba3914a
+      internalID: -605725360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions2_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -260,8 +218,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67cd3f0a8575546499479d6d3a906561
-      internalID: 220824744
+      spriteID: 5748a7a284bcd0f43915d63a230d3c9e
+      internalID: -940297140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Instructions2_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86dcade4952ee324d8de140852e1c0ae
+      internalID: 1137777589
       vertices: []
       indices: 
       edges: []
@@ -277,11 +256,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Instructions_0: 1104642211
-      Instructions_1: -253846902
-      Instructions_2: 496341409
-      Instructions_3: -1554114899
-      Instructions_4: 220824744
+      Instructions2_0: -374360263
+      Instructions2_1: -605725360
+      Instructions2_2: -940297140
+      Instructions2_3: 1137777589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
